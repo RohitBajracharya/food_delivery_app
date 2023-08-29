@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/home/food_page_body.dart';
 import 'package:food_delivery_app/utils/colors.dart';
 import 'package:food_delivery_app/widgets/big_text.dart';
 import 'package:food_delivery_app/widgets/small_text.dart';
@@ -16,6 +17,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
     return Scaffold(
       body: Column(
         children: [
+          //country name+city name+down-arrow icon and search icon
           Container(
             child: Container(
               margin: const EdgeInsets.only(top: 45, bottom: 15),
@@ -64,6 +66,8 @@ class _MainFoodPageState extends State<MainFoodPage> {
               ),
             ),
           ),
+          //food page body
+          const FoodPageBody(),
         ],
       ),
     );
