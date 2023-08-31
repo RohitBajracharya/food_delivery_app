@@ -1,11 +1,12 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/utils/colors.dart';
+import 'package:food_delivery_app/widgets/app_column.dart';
 import 'package:food_delivery_app/widgets/big_text.dart';
 import 'package:food_delivery_app/widgets/icon_and_text.dart';
 import 'package:food_delivery_app/widgets/small_text.dart';
 
-import '../utils/dimension.dart';
+import '../../utils/dimension.dart';
 
 class FoodPageBody extends StatefulWidget {
   const FoodPageBody({super.key});
@@ -260,55 +261,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                   left: Dimensions.width15,
                   right: Dimensions.width15,
                 ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    //item name
-                    BigText(text: "Pancake with Honey"),
-                    SizedBox(height: Dimensions.height10),
-                    //stars, rating, comments
-                    Row(
-                      children: [
-                        //stars
-                        Wrap(
-                          children: List.generate(
-                            5,
-                            (index) => const Icon(Icons.star,
-                                color: AppColors.mainColor, size: 15),
-                          ),
-                        ),
-                        SizedBox(width: Dimensions.width10),
-                        //ratings
-                        SmallText(text: "4.5"),
-                        SizedBox(width: Dimensions.width10),
-                        //comments
-                        SmallText(text: "1287 comments"),
-                      ],
-                    ),
-                    SizedBox(height: Dimensions.height20),
-                    //icon and text
-                    const Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        IconAndTextWidget(
-                          icon: Icons.circle_sharp,
-                          text: "Normal",
-                          iconColor: AppColors.iconColor1,
-                        ),
-                        IconAndTextWidget(
-                          icon: Icons.location_on,
-                          text: "1.7 km",
-                          iconColor: AppColors.mainColor,
-                        ),
-                        IconAndTextWidget(
-                          icon: Icons.access_time_rounded,
-                          text: "32 min",
-                          iconColor: AppColors.iconColor2,
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
+                child: const AppColumn(text: "Pancake with Honey"),
               ),
             ),
           ),
