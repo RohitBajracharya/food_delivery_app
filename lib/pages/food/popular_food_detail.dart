@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/widgets/app_column.dart';
 import 'package:food_delivery_app/widgets/app_icon.dart';
+import 'package:food_delivery_app/widgets/expandable_text_widget.dart';
 
 import '../../utils/colors.dart';
 import '../../utils/dimension.dart';
@@ -15,7 +16,7 @@ class PopularFoodDetail extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Stack(
         children: [
-          //image section
+          //background image section
           Positioned(
             left: 0,
             right: 0,
@@ -45,7 +46,7 @@ class PopularFoodDetail extends StatelessWidget {
               ],
             ),
           ),
-          //
+          // title name, rating, icon, introduce text,
           Positioned(
             left: 0,
             right: 0,
@@ -72,6 +73,16 @@ class PopularFoodDetail extends StatelessWidget {
                   SizedBox(height: Dimensions.height20),
                   //introduce text
                   BigText(text: "Introduce"),
+                  SizedBox(height: Dimensions.height20),
+                  //expandable text widget
+                  const Expanded(
+                    child: SingleChildScrollView(
+                      child: ExpandableTextWidget(
+                        text:
+                            "Savor the sweet moments of morning with our pancake, honey, and berries combination. Fluffy pancakes meet the golden drizzle of honey and the burst of juicy berries, creating a symphony of flavors that's as delightful as it is energizing. Experience comfort and freshness on a plate, and make your breakfast a truly special occasion.",
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -124,7 +135,7 @@ class PopularFoodDetail extends StatelessWidget {
                 ],
               ),
             ),
-            //
+            //quantity and add to cart button
             Container(
               padding: EdgeInsets.only(
                 top: Dimensions.height20,
