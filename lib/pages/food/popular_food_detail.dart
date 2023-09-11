@@ -14,8 +14,8 @@ import '../../widgets/big_text.dart';
 import '../home/main_food_page.dart';
 
 class PopularFoodDetail extends StatelessWidget {
-  int pageId;
-  PopularFoodDetail({
+  final int pageId;
+  const PopularFoodDetail({
     Key? key,
     required this.pageId,
   }) : super(key: key);
@@ -164,7 +164,9 @@ class PopularFoodDetail extends StatelessWidget {
                 borderRadius: BorderRadius.circular(Dimensions.radius20),
                 color: AppColors.mainColor,
               ),
-              child: BigText(text: "\$10 | Add to cart", color: Colors.white),
+              child: BigText(
+                  text: "\$${product.price!} | Add to cart",
+                  color: Colors.white),
             ),
           ],
         ),

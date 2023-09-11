@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/data/controllers/recommended_product_controller.dart';
 import 'package:food_delivery_app/widgets/app_icon.dart';
 import 'package:food_delivery_app/widgets/big_text.dart';
 import 'package:food_delivery_app/widgets/expandable_text_widget.dart';
 import 'package:get/get.dart';
 
 import '../../routes/route_helper.dart';
+import '../../utils/app_constants.dart';
 import '../../utils/colors.dart';
 import '../../utils/dimension.dart';
 
 class RecommendedFoodDetail extends StatelessWidget {
-  const RecommendedFoodDetail({super.key});
+  final int pageId;
+  const RecommendedFoodDetail({super.key, required this.pageId});
 
   @override
   Widget build(BuildContext context) {
+    var product =
+        Get.find<RecommendedProductController>().recommendedProductList[pageId];
     return Scaffold(
       backgroundColor: Colors.white,
       body: CustomScrollView(
@@ -50,7 +55,7 @@ class RecommendedFoodDetail extends StatelessWidget {
                 padding: EdgeInsets.only(top: 5, bottom: 10),
                 child: Center(
                   child: BigText(
-                    text: "Pancake with Honey",
+                    text: product.name!,
                     size: Dimensions.font26,
                   ),
                 ),
@@ -60,8 +65,8 @@ class RecommendedFoodDetail extends StatelessWidget {
             backgroundColor: AppColors.yellowColor,
             expandedHeight: 300,
             flexibleSpace: FlexibleSpaceBar(
-              background: Image.asset(
-                "assets/images/pancake.jpg",
+              background: Image.network(
+                AppConstants.BASE_URL + AppConstants.UPLOAD_URL + product.img!,
                 width: double.maxFinite,
                 fit: BoxFit.cover,
               ),
@@ -75,9 +80,9 @@ class RecommendedFoodDetail extends StatelessWidget {
                     left: Dimensions.width20,
                     right: Dimensions.width20,
                   ),
-                  child: const ExpandableTextWidget(
-                      text:
-                          "Savor the sweet moments of morning with our pancake, honey, and berries combination. Fluffy pancakes meet the golden drizzle of honey and the burst of juicy berries, creating a symphony of flavors that's as delightful as it is energizing. Experience comfort and freshness on a plate, and make your breakfast a truly special occasion.Savor the sweet moments of morning with our pancake, honey, and berries combination. Fluffy pancakes meet the golden drizzle of honey and the burst of juicy berries, creating a symphony of flavors that's as delightful as it is energizing. Experience comfort and freshness on a plate, and make your breakfast a truly special occasion.Savor the sweet moments of morning with our pancake, honey, and berries combination. Fluffy pancakes meet the golden drizzle of honey and the burst of juicy berries, creating a symphony of flavors that's as delightful as it is energizing. Experience comfort and freshness on a plate, and make your breakfast a truly special occasion.Savor the sweet moments of morning with our pancake, honey, and berries combination. Fluffy pancakes meet the golden drizzle of honey and the burst of juicy berries, creating a symphony of flavors that's as delightful as it is energizing. Experience comfort and freshness on a plate, and make your breakfast a truly special occasion.Savor the sweet moments of morning with our pancake, honey, and berries combination. Fluffy pancakes meet the golden drizzle of honey and the burst of juicy berries, creating a symphony of flavors that's as delightful as it is energizing. Experience comfort and freshness on a plate, and make your breakfast a truly special occasion.Savor the sweet moments of morning with our pancake, honey, and berries combination. Fluffy pancakes meet the golden drizzle of honey and the burst of juicy berries, creating a symphony of flavors that's as delightful as it is energizing. Experience comfort and freshness on a plate, and make your breakfast a truly special occasion.Savor the sweet moments of morning with our pancake, honey, and berries combination. Fluffy pancakes meet the golden drizzle of honey and the burst of juicy berries, creating a symphony of flavors that's as delightful as it is energizing. Experience comfort and freshness on a plate, and make your breakfast a truly special occasion.Savor the sweet moments of morning with our pancake, honey, and berries combination. Fluffy pancakes meet the golden drizzle of honey and the burst of juicy berries, creating a symphony of flavors that's as delightful as it is energizing. Experience comfort and freshness on a plate, and make your breakfast a truly special occasion.Savor the sweet moments of morning with our pancake, honey, and berries combination. Fluffy pancakes meet the golden drizzle of honey and the burst of juicy berries, creating a symphony of flavors that's as delightful as it is energizing. Experience comfort and freshness on a plate, and make your breakfast a truly special occasion.Savor the sweet moments of morning with our pancake, honey, and berries combination. Fluffy pancakes meet the golden drizzle of honey and the burst of juicy berries, creating a symphony of flavors that's as delightful as it is energizing. Experience comfort and freshness on a plate, and make your breakfast a truly special occasion.Savor the sweet moments of morning with our pancake, honey, and berries combination. Fluffy pancakes meet the golden drizzle of honey and the burst of juicy berries, creating a symphony of flavors that's as delightful as it is energizing. Experience comfort and freshness on a plate, and make your breakfast a truly special occasion.Savor the sweet moments of morning with our pancake, honey, and berries combination. Fluffy pancakes meet the golden drizzle of honey and the burst of juicy berries, creating a symphony of flavors that's as delightful as it is energizing. Experience comfort and freshness on a plate, and make your breakfast a truly special occasion.Savor the sweet moments of morning with our pancake, honey, and berries combination. Fluffy pancakes meet the golden drizzle of honey and the burst of juicy berries, creating a symphony of flavors that's as delightful as it is energizing. Experience comfort and freshness on a plate, and make your breakfast a truly special occasion.Savor the sweet moments of morning with our pancake, honey, and berries combination. Fluffy pancakes meet the golden drizzle of honey and the burst of juicy berries, creating a symphony of flavors that's as delightful as it is energizing. Experience comfort and freshness on a plate, and make your breakfast a truly special occasion.Savor the sweet moments of morning with our pancake, honey, and berries combination. Fluffy pancakes meet the golden drizzle of honey and the burst of juicy berries, creating a symphony of flavors that's as delightful as it is energizing. Experience comfort and freshness on a plate, and make your breakfast a truly special occasion.Savor the sweet moments of morning with our pancake, honey, and berries combination. Fluffy pancakes meet the golden drizzle of honey and the burst of juicy berries, creating a symphony of flavors that's as delightful as it is energizing. Experience comfort and freshness on a plate, and make your breakfast a truly special occasion.Savor the sweet moments of morning with our pancake, honey, and berries combination. Fluffy pancakes meet the golden drizzle of honey and the burst of juicy berries, creating a symphony of flavors that's as delightful as it is energizing. Experience comfort and freshness on a plate, and make your breakfast a truly special occasion."),
+                  child: ExpandableTextWidget(
+                    text: product.description!,
+                  ),
                 ),
               ],
             ),
@@ -105,7 +110,7 @@ class RecommendedFoodDetail extends StatelessWidget {
                 ),
                 // text
                 BigText(
-                  text: "\$12.88  X  0 ",
+                  text: "\$${product.price!}  X  0 ",
                   color: AppColors.mainBlackColor,
                   size: Dimensions.font26,
                 ),
