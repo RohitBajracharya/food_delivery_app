@@ -9,7 +9,6 @@ import 'package:get/get.dart';
 import 'package:food_delivery_app/helper/dependencies.dart' as dep;
 
 void main() async {
-  //7:19:40
   WidgetsFlutterBinding.ensureInitialized();
   await dep.init();
   runApp(const MyApp());
