@@ -7,6 +7,8 @@ import 'package:get/get.dart';
 
 import 'package:food_delivery_app/data/repository/popular_product_repo.dart';
 
+import '../../models/cart_model.dart';
+
 class PopularProductController extends GetxController {
   final PopularProductRepo popularProductRepo;
   PopularProductController({required this.popularProductRepo});
@@ -52,6 +54,10 @@ class PopularProductController extends GetxController {
         backgroundColor: AppColors.mainColor,
         colorText: Colors.white,
       );
+      if (_inCartItems > 0) {
+        _quantity = -_inCartItems;
+        return _quantity;
+      }
       return 0;
     } else if ((_inCartItems + quantity) > 20) {
       Get.snackbar(
@@ -74,7 +80,7 @@ class PopularProductController extends GetxController {
     exist = _cart.existInCart(product);
     //if exist
     // get from storage and set it in _inCartItems
-    print("exist or not " + exist.toString());
+    // print("exist or not " + exist.toString());
     if (exist) {
       _inCartItems = _cart.getQuantity(product);
     }
@@ -86,15 +92,19 @@ class PopularProductController extends GetxController {
     _quantity = 0;
     _inCartItems = _cart.getQuantity(product);
     _cart.items.forEach((key, value) {
-      print("the id is " +
-          value.id.toString() +
-          " quantity is " +
-          value.quantity.toString());
+      // print("the id is " +
+      //     value.id.toString() +
+      //     " quantity is " +
+      //     value.quantity.toString());
     });
     update();
   }
 
   int get totalItems {
     return _cart.totalItems;
+  }
+
+  List<CartModel> get getItems {
+    return _cart.getItems;
   }
 }
