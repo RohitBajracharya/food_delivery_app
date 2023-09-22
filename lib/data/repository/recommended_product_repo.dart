@@ -4,11 +4,11 @@ import 'package:get/get.dart';
 
 import 'package:food_delivery_app/data/api/api_client.dart';
 
-class PopularProductRepo extends GetxService {
+class RecommendedProductRepo extends GetxService {
   final ApiClient apiClient;
-  PopularProductRepo({required this.apiClient});
+  RecommendedProductRepo({required this.apiClient});
 
-  Future<Response> getPopularProductList() async {
-    return await apiClient.getData(AppConstants.POPULAR_PRODUCT_URI);
+  Future<Response> getRecommendedProductList() async {
+    return await apiClient.getData(AppConstants.RECOMMENDED_PRODUCT_URI);
   }
 }
