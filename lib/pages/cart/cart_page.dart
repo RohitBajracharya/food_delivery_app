@@ -146,8 +146,10 @@ class CartPage extends StatelessWidget {
                                               children: [
                                                 GestureDetector(
                                                   onTap: () {
-                                                    // popularProduct
-                                                    // .setQuantity(false);
+                                                    cartController.addItem(
+                                                        _cartList[index]
+                                                            .product!,
+                                                        -1);
                                                   },
                                                   child: const Icon(
                                                     Icons.remove,
@@ -166,8 +168,10 @@ class CartPage extends StatelessWidget {
                                                         Dimensions.width10 / 2),
                                                 GestureDetector(
                                                   onTap: () {
-                                                    // popularProduct
-                                                    // .setQuantity(true);
+                                                    cartController.addItem(
+                                                        _cartList[index]
+                                                            .product!,
+                                                        1);
                                                   },
                                                   child: const Icon(
                                                     Icons.add,
